@@ -1,0 +1,83 @@
+#include <sys/time.h>     //functions: gettimeofday()
+#include <stdbool.h>      //for using bool
+#include "tim_sort.h"
+
+#define RAND 0
+#define ASC 1
+#define DESC 2
+
+//function to generate array with given size with asc, desc, or random data
+void generate_array(int *arr, int size, int mode){
+  int i;
+
+  switch(mode){
+    case RAND:
+    for(i = 0; i < size; i++){
+      arr[i] = rand() % size;
+    }
+    break;
+    case ASC:
+    for(i = 0; i < size; i++){
+      arr[i] = i;
+    }
+    break;
+    case DESC:
+    for(i = 0; i < size; i++){
+      arr[i] = size - 1 - i;
+    }
+    break;
+  }
+
+}
+
+
+
+//function that calculates time taken to sort arr using bubble sort
+long long calc_time(int *arr, int size, int mode){
+  struct timeval current_time;
+
+  generate_array(arr, size, mode);
+  //get initial Time
+  gettimeofday(&current_time, NULL);
+  long long start_time = current_time.tv_sec * 1000LL + current_time.tv_usec / 1000;
+
+  Sort(arr,size);
+
+  //get final Time
+  gettimeofday(&current_time, NULL);
+  long long end_time = current_time.tv_sec * 1000LL + current_time.tv_usec / 1000;
+
+  return end_time - start_time;
+
+}
+
+int main(){
+  int size, mode, init_arr_size = 8000, increment = 4000, limit = 36000;
+
+    printf("Time taken by Tim Sort:\n");
+    for(size = init_arr_size; size <= limit; size += increment){
+        int *arr = (int *)calloc(size, sizeof(int));
+
+        printf("Size of Array: %d\n",size);
+        for(mode = 0; mode < 3; mode++){
+          long long time = calc_time(arr, size, mode);
+    
+          switch(mode){
+              case RAND:
+              printf("RAND : ");
+              break;
+              case ASC:
+              printf("ASC : ");
+              break;
+              case DESC:
+              printf("DESC : ");
+              break;
+    
+        }
+        printf("%lld sec\n", time);
+    }
+
+  }
+
+  return 0;
+}
