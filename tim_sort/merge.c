@@ -1,11 +1,12 @@
 #include "merge.h"
 
-void merge(int arr[], int l, int m, int r) 
+void merge(void **arr, int l, int m, int r,int (*cmp)(void *, void *)) 
 { 
     // original array is broken in two parts 
     // left and right array 
     int len1 = m - l + 1, len2 = r - m; 
-    int left[len1], right[len2]; 
+    void *left[len1]; 
+    void *right[len2]; 
     for (int i = 0; i < len1; i++) 
         left[i] = arr[l + i]; 
     for (int i = 0; i < len2; i++) 
@@ -18,7 +19,7 @@ void merge(int arr[], int l, int m, int r)
     // in larger sub array 
     while (i < len1 && j < len2) 
     { 
-        if (left[i] <= right[j]) 
+        if ((*cmp)(left[i],right[j]) <= 0) 
         { 
             arr[k] = left[i]; 
             i++; 

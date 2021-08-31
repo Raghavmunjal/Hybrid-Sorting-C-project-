@@ -6,12 +6,12 @@ const int RUN = 32;
 // this function sorts array from left index to 
 // right index which is of size atmost RUN 
 
-void Sort(int arr[], int n) 
+void Sort(void **arr, int n,int (*cmp)(void *, void *)) 
 { 
     // Sort individual subarrays of size RUN 
     for (int i = 0; i < n; i+=RUN)
     {
-        insertionSort(arr, i, min((i+31), (n-1))); 
+        insertionSort(arr, i, min((i+31), (n-1)),cmp); 
     }
     // start merging from size RUN (or 32). It will merge 
     // to form size 64, then 128, 256 and so on .... 
@@ -31,7 +31,7 @@ void Sort(int arr[], int n)
             // arr[mid+1....right] 
                 
             // merge function merges the sorted runs 
-            merge(arr, left, mid, right); 
+            merge(arr, left, mid, right,cmp); 
         } 
     } 
 } 
