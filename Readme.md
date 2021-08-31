@@ -40,12 +40,12 @@ This Tim Sort Library designed for C ->
 
 ### Pros and Cons of Tim Sort
 * ***Pros*** 
-  * It is unbelievably fast for nearly sorted data sequence (including reverse sorted data);
+  * It is unbelievably fast for nearly sorted data sequence (including reverse sorted data).
   * It is stable and the worst case is still O(N*LOG(N)).
 
 * ***Cons***
-  * It is not inplace 
-  * 
+  * It is not InPlace.
+  * Locality of refernce is not so good.
 
 
 
