@@ -25,19 +25,11 @@ This Tim Sort Library designed for C ->
 * We one by one sort pieces of size equal to run
 * After sorting individual pieces, we merge them one by one. We double the size of merged subarrays after every iteration.
 
-### Specifications of some ***Basic functions*** of Different Data-structures
-| Data Structure | Functions | Time Complexity | Space Complexity |
-|----------------|-----------|-----------------|------------------|
-|Linked-List| insertFromHead() | O(1) | O(1) |
-|           | insertFromTail() | O(1) | O(1) |
-|           | deleteFromHead() | O(1) | O(1) |
-|           | deleteFromTail() | O(1) | O(1) |
-|   Stack   |      push()      | O(1) | O(1) |
-|           |      pop()       | O(1) | O(1) |
-|           |      top()       | O(1) | O(1) |
-|   Queue   |    enqueue()     | O(1) | O(1) |
-|           |    dequeue()     | O(1) | O(1) |
-|           |    peek()        | O(1) | O(1) |
+### Complexity of Sorting Algorithms
+| Sorting Algorithm |  Time Complexity | Space Complexity |
+|-------------------|------------------|------------------|
+|   Tim Sort        |      O(1)        |     O(1)         |
+
 
 ### How to use this Tim Sort in C?
 To use this library, download the files in same folder where you have your file in which you want to use this library, then include this header libaray named CSTL.h
