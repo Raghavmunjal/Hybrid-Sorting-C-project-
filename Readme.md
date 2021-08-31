@@ -25,10 +25,14 @@ This Tim Sort Library designed for C ->
 * We one by one sort pieces of size equal to run
 * After sorting individual pieces, we merge them one by one. We double the size of merged subarrays after every iteration.
 
-### Complexity of Sorting Algorithms
-| Sorting Algorithm |  Time Complexity | Space Complexity |
-|-------------------|------------------|------------------|
-|   Tim Sort        |      O(1)        |     O(1)         |
+### Complexity of Hybrid Sorting Algorithms
+
+**Worst Case Time Complexity and Auxilary Space and n is the size of input to be sorted**
+
+| Sorting Algorithm |  Time Complexity | Auxilary Space |
+|-------------------|------------------|----------------|
+|   Tim Sort        |      O(nlogn)    |     O(n)       |
+|   Intro Sort      |      O(nlogn)    |     O(logn)    |
 
 
 ### How to use this Tim Sort in C?
