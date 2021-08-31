@@ -1,5 +1,7 @@
 # Library For Hybrid Sorting Algorithm
 
+**A Hybrid Algorithm is an algorithm that combines two or more other algorithms that solve the same problem**
+
 ### Why Hybrid Sorting Algorithm in C Language? 
 Standard C library provides qsort function that can be used for sorting , qsort function uses QuickSort algorithm to sort . C might be the fastest language but qsort is very slow. Quick sort is not a stable algorithm.
 
@@ -25,20 +27,32 @@ This Tim Sort Library designed for C ->
 * We one by one sort pieces of size equal to run
 * After sorting individual pieces, we merge them one by one. We double the size of merged subarrays after every iteration.
 
-### Complexity of Hybrid Sorting Algorithms
+### Time Complexity of Sorting Algorithms
 
-**Worst Case Time Complexity and Auxilary Space and n is the size of input to be sorted**
+**n is the size of input to be sorted**
 
-| Sorting Algorithm |  Time Complexity | Auxilary Space |
-|-------------------|------------------|----------------|
-|   Tim Sort        |      O(nlogn)    |     O(n)       |
-|   Intro Sort      |      O(nlogn)    |     O(logn)    |
+| Sorting Algorithm |    Best Case     |   Average Case |  Worst case    |
+|-------------------|------------------|----------------|----------------|
+|   Tim Sort        |      O(n)        |     O(nlogn)   |    O(nlogn)    |
+|   Intro Sort      |      O(nlogn)    |     O(nlogn)   |    O(nlogn)    |
+|   Merge Sort      |      O(nlogn)    |     O(nlogn)   |    O(nlogn)    |
+|   Quick Sort      |      O(nlogn)    |     O(nlogn)   |    O(n^2)      |
+
+### Pros and Cons of Tim Sort
+* ***Pros*** 
+  * It is unbelievably fast for nearly sorted data sequence (including reverse sorted data);
+  * It is stable and the worst case is still O(N*LOG(N)).
+
+* ***Cons***
+  * It is not inplace 
+  * 
+
 
 
 ### How to use this Tim Sort in C?
-To use this library, download the files in same folder where you have your file in which you want to use this library, then include this header libaray named CSTL.h
+To use this library, download the files in same folder where you have your file in which you want to use this library, then include this header libaray named tim_sort.h
 ```C
  #include "tim_sort.h"
 ```
-User can also download files in any place and use the path in include statement of the program where you want to use the library.
+You can also download files in any place and use the path in include statement of the program where you want to use the library.
 
