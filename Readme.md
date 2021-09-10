@@ -57,11 +57,11 @@ This Tim Sort Library designed for C ->
 ```
 * Compile your code.
 ```C
- make final
+ make timsort
 ```
 * Now you can run your code
 ```C
- ./final
+ ./timsort
 ```
 
 
