@@ -3,9 +3,8 @@
 #define min(a,b) (a)<(b)?(a):(b)
 const int RUN = 32; 
 
-// this function sorts array from left index to 
+// This function sorts array from left index to 
 // right index which is of size atmost RUN 
-
 void Sort(void **arr, int n,int (*cmp)(void *, void *)) 
 { 
     // Sort individual subarrays of size RUN 
@@ -13,6 +12,7 @@ void Sort(void **arr, int n,int (*cmp)(void *, void *))
     {
         insertionSort(arr, i, min((i+31), (n-1)),cmp); 
     }
+    
     // start merging from size RUN (or 32). It will merge 
     // to form size 64, then 128, 256 and so on .... 
     for (int size = RUN; size < n; size = 2*size) 

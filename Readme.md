@@ -50,9 +50,19 @@ This Tim Sort Library designed for C ->
 
 
 ### How to use this Tim Sort in C?
-To use this library, download the files in same folder where you have your file in which you want to use this library, then include this header libaray named tim_sort.h
+* Download the code in your linux system.
+* Include this library in your code.
 ```C
  #include "tim_sort.h"
 ```
-You can also download files in any place and use the path in include statement of the program where you want to use the library.
+* Compile your code.
+```C
+ make final
+```
+* Now you can run your code
+```C
+ ./final
+```
+
+
 
