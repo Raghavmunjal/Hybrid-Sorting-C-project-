@@ -1,13 +1,12 @@
 /**
  * Project to Implement tim sort 
  *
- * Compilation : make final
- * Execution : ./final
+ * Compilation : make timsort
+ * Execution : ./timsort
  *
  * @Raghav and 1910990074  5/09/21
  * 
- * Resources : wikipedia and gfg
- */
+*/
 
 #include "tim_sort.h"
 
@@ -18,6 +17,10 @@ struct emp {
 	char name[25];
 	int age;
 	int id;
+};
+
+struct roll_no{
+    int rn;
 };
 
 // integer comparator
@@ -40,9 +43,22 @@ int float_cmp(void *a, void *b){
 
 // age comparator to sort employee on basis of there age
 int age_cmp(void *i, void *j){
+    struct emp *x = (struct emp *)i;
+    struct emp *y = (struct emp *)j;
+    return x->age - y->age;
+}
+
+// id comparator to sort employee on basis of there id
+int id_cmp(void *i, void *j){
      struct emp *x = (struct emp *)i;
      struct emp *y = (struct emp *)j;
-     return x->age - y->age;
+     return x->id - y->id;
+}
+
+int roll_cmp(void *i, void *j){
+     struct roll_no *x = (struct roll_no *)i;
+     struct roll_no *y = (struct roll_no *)j;
+     return x->rn - y->rn;
 }
 
 
@@ -59,6 +75,26 @@ void print_arr(struct emp **a, int length)
 
 int main()
 {
+//     struct roll_no **a  = (struct roll_no **)malloc(sizeof(struct roll_no *) * 100);
+//     int roll;
+//     for(int i=0;i<100;i++){
+//         roll = rand() % 100 + 1;
+//         struct roll_no *r1 = (struct roll_no*)malloc(sizeof(struct roll_no));
+//         r1->rn = roll;
+//         a[i] = r1;
+//     }
+    
+//     for(int i=0;i<100;i++){
+//         printf("%d ",a[i]->rn);
+//     }
+    
+//     printf("\n");
+    
+// 	Sort((void **)a,100,roll_cmp);
+	
+// 	for(int i=0;i<100;i++){
+//         printf("%d ",a[i]->rn);
+//     }
     
     // creating employees
     struct emp **a  = (struct emp **)malloc(sizeof(struct emp *) * 5);
@@ -78,10 +114,10 @@ int main()
 	print_arr(a,5);
 	
 	// calling sort which is basically tim sort passing comparator on which tim_sort is going to sort 
-	Sort((void **)a,5,age_cmp);
+	Sort((void **)a,5,id_cmp);
 	
 	// after sorting
 	print_arr(a,5);
-	
+
     return 0;
 }
